@@ -2,7 +2,7 @@
 Golang coding test
 DOCKER BUILD
 To build a docker image run: docker build -t go-gin-app .  
-To run the program in Docker run docker run -p 8080:8080 go-gin-app
+To run the program in Docker run: docker run -p 8080:8080 go-gin-app
 
 Client
 
@@ -198,3 +198,19 @@ curl -X DELETE http://localhost:8080/remove/myList
 # check the list after deleting(should not be present)
 curl http://localhost:8080/get/myList
 
+# performance testing
+Go to client folder cd client
+Run the following command go test -bench .
+My machine example
+goos: windows
+goarch: amd64
+pkg: github.com/ZivojinMilutinovic/golang-coding-test/client
+cpu: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+BenchmarkSet-8             15614             81011 ns/op
+BenchmarkGet-8             16159             65966 ns/op
+BenchmarkUpdate-8          19168             83581 ns/op
+BenchmarkRemove-8          10000            107992 ns/op
+BenchmarkPush-8             9217            118481 ns/op
+BenchmarkPop-8             10000            100597 ns/op
+PASS
+ok      github.com/ZivojinMilutinovic/golang-coding-test/client 10.881s

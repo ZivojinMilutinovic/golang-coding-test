@@ -4,17 +4,17 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ZivojinMilutinovic/golang-coding-test/store"
+	"github.com/ZivojinMilutinovic/golang-coding-test/store_api"
 	"github.com/gin-gonic/gin"
 )
 
 type API struct {
-	Store *store.Store
+	Store *store_api.Store
 }
 
 func StartServer() {
 	api := &API{
-		Store: store.NewStore(),
+		Store: store_api.NewStore(),
 	}
 	r := gin.Default()
 	api.registerRoutes(r)
